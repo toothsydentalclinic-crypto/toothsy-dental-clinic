@@ -7,7 +7,7 @@
       <div class="relative z-10 flex items-center justify-between px-4 py-1 md:px-8">
 
         <!-- Logo -->
-        <NuxtLink to="/" class="flex items-center gap-2 rounded-xl px-1 py-1.5">
+        <NuxtLink to="/" class="md:order-1 flex items-center gap-2 rounded-xl px-1 py-1.5">
           <img ref="logoRef" src="/companylogo.png" class="h-17 w-20" alt="Toothsy Dental Clinic logo">
         </NuxtLink>
 
@@ -19,7 +19,7 @@
       </button>
 
         <!-- Desktop nav pill -->
-        <nav ref="navRef" class="hidden md:flex relative items-center gap-1 bg-[#8FE3B8] rounded-full p-1.5 text-sm font-medium">
+        <nav ref="navRef" class="hidden md:flex md:order-2 relative items-center gap-1 bg-[#8FE3B8] rounded-full p-1.5 text-sm font-medium">
           <span class="nav-pill absolute top-1.5 bottom-1.5 left-0 rounded-full bg-[#111827]" :style="pillStyle"></span>
 
           <NuxtLink
@@ -33,11 +33,11 @@
         </nav>
 
         <!-- Book Now (desktop only) -->
-        <div class="hidden md:block">
+        <div class="hidden md:block md:order-3">
           <NuxtLink
             to="book-appointment"
             rel="noopener noreferrer"
-            class="relative z-10 ml-1 px-5 py-2 rounded-full bg-[#6BCE9F] text-white hover:bg-[#036533] transition-colors duration-300"
+            class="btn-primary relative z-10 ml-1 px-5 py-2 rounded-full text-white transition-all duration-300"
           >Book Now</NuxtLink>
         </div>
       </div>
@@ -47,7 +47,7 @@
     <Transition name="fade">
       <div
         v-if="menuOpen"
-        class="md:hidden fixed inset-0 z-[60] bg-stone-900/40"
+        class="md:hidden fixed inset-0 z-[60] bg-[#0b1f16]/45 backdrop-blur-[2px]"
         @click="menuOpen = false"
       ></div>
     </Transition>
@@ -56,32 +56,71 @@
     <Transition name="slide">
       <aside
         v-if="menuOpen"
-        class="md:hidden fixed inset-y-0 left-0 z-[70] w-80 max-w-[85%] bg-white shadow-xl overflow-y-auto flex flex-col"
+        class="md:hidden fixed inset-y-0 left-0 z-[70] w-80 max-w-[85%] bg-[#EFF8FC] rounded-r-[2rem] shadow-[10px_0_50px_rgba(3,101,51,0.22)] overflow-y-auto overflow-x-hidden flex flex-col"
       >
-        <div class="flex items-center justify-between px-2 border-b border-stone-100">
-          <div class="flex justify-center items-center">
-            <NuxtLink to="/" class="text-lg font-bold" @click="menuOpen = false">
-              <img src="/companylogo.png" class="h-18.5 mb-2 mt-1 w-21" alt="Toothsy Dental Clinic logo">
-            </NuxtLink>
-          </div>
-          <button @click="menuOpen = false" aria-label="Close menu" class="text-amber-500 px-2">
-            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <!-- faint signature watermark, tucked in the corner — same motif as the About page -->
+        <div aria-hidden="true" class="pointer-events-none select-none absolute -right-12 -top-6 w-[180px] opacity-[0.05] rotate-[8deg]">
+          <svg viewBox="0 0 200 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M100,20 C70,20 45,45 45,80 C45,110 55,135 50,165 C47,185 60,205 75,195 C85,188 88,170 100,170 C112,170 115,188 125,195 C140,205 153,185 150,165 C145,135 155,110 155,80 C155,45 130,20 100,20 Z"
+              stroke="#111827" stroke-width="3" stroke-linejoin="round"
+            />
+          </svg>
+        </div>
+
+        <div class="relative flex items-center justify-between px-5 py-4 border-b border-[#1f9d63]/12">
+          <NuxtLink to="/" class="flex items-center" @click="menuOpen = false">
+            <img src="/companylogo.png" class="h-14 w-auto" alt="Toothsy Dental Clinic logo">
+          </NuxtLink>
+          <button
+            @click="menuOpen = false"
+            aria-label="Close menu"
+            class="w-9 h-9 rounded-full bg-[#dff0e0] text-[#036533] flex items-center justify-center transition-colors duration-200 hover:bg-[#6BCE9F] hover:text-white"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
               <path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"/>
             </svg>
           </button>
         </div>
 
-        <nav class="flex flex-col gap-5 px-5 py-6 text-xl text-[#036533] font-medium">
-          <NuxtLink to="/" exact-active-class="text-amber-600 underline underline-offset-4" @click="menuOpen = false" class="hover:text-amber-600">Home</NuxtLink>
-          <NuxtLink to="/service" active-class="text-amber-600 underline underline-offset-4" @click="menuOpen = false" class="hover:text-amber-600">Services</NuxtLink>
-          <NuxtLink to="/blog" active-class="text-amber-600 underline underline-offset-4" @click="menuOpen = false" class="hover:text-amber-600">Blog</NuxtLink>
-          <NuxtLink to="/about" active-class="text-amber-600 underline underline-offset-4" @click="menuOpen = false" class="hover:text-amber-600">About</NuxtLink>
-          <NuxtLink to="/contact" active-class="text-amber-600 underline underline-offset-4" @click="menuOpen = false" class="hover:text-amber-600">Contact Us</NuxtLink>
+        <span class="relative mt-6 px-5 text-[0.68rem] font-bold tracking-[0.18em] uppercase text-[#1f9d63]">Menu</span>
+
+        <nav class="mobile-nav-enter relative flex flex-col gap-1 px-3 mt-2 pb-6 font-display text-lg font-semibold">
+          <NuxtLink
+            to="/"
+            exact-active-class="text-[#036533] bg-[#dff0e0]"
+            @click="menuOpen = false"
+            class="px-4 py-3 rounded-2xl transition-colors duration-200 hover:bg-[#dff0e0] hover:text-[#036533]"
+          >Home</NuxtLink>
+          <NuxtLink
+            to="/service"
+            active-class="text-[#036533] bg-[#dff0e0]"
+            @click="menuOpen = false"
+            class="px-4 py-3 rounded-2xl transition-colors duration-200 hover:bg-[#dff0e0] hover:text-[#036533]"
+          >Services</NuxtLink>
+          <NuxtLink
+            to="/blog"
+            active-class="text-[#036533] bg-[#dff0e0]"
+            @click="menuOpen = false"
+            class="px-4 py-3 rounded-2xl transition-colors duration-200 hover:bg-[#dff0e0] hover:text-[#036533]"
+          >Blog</NuxtLink>
+          <NuxtLink
+            to="/about"
+            active-class="text-[#036533] bg-[#dff0e0]"
+            @click="menuOpen = false"
+            class="px-4 py-3 rounded-2xl transition-colors duration-200 hover:bg-[#dff0e0] hover:text-[#036533]"
+          >About</NuxtLink>
+          <NuxtLink
+            to="/contact"
+            active-class="text-[#036533] bg-[#dff0e0]"
+            @click="menuOpen = false"
+            class="px-4 py-3 rounded-2xl transition-colors duration-200 hover:bg-[#dff0e0] hover:text-[#036533]"
+          >Contact Us</NuxtLink>
         </nav>
 
-        <div class="flex justify-center pb-6">
+        <div class="relative flex justify-center pb-6 mt-2">
           <NuxtLink
-            class="px-8 py-2 rounded-full bg-[#036533] text-white text-sm font-medium hover:bg-amber-300"
+            class="btn-primary px-8 py-3 rounded-full text-white text-sm font-semibold transition-all duration-300"
             to="/book-appointment"
             target="_blank"
             rel="noopener noreferrer"
@@ -89,7 +128,7 @@
           >Book Now</NuxtLink>
         </div>
 
-        <div class="mt-auto px-5 py-5 border-t border-stone-100">
+        <div class="relative mt-auto px-5 py-5 border-t border-[#1f9d63]/12">
           <p class="text-center text-[10px] text-stone-400 tracking-wide">Toothsy Dental Clinic</p>
         </div>
       </aside>
@@ -286,7 +325,7 @@ onBeforeUnmount(() => {
   font-optical-sizing: auto;
 }
 
-.slide-enter-active, .slide-leave-active { transition: transform 0.3s ease; }
+.slide-enter-active, .slide-leave-active { transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1); }
 .slide-enter-from, .slide-leave-to { transform: translateX(-100%); }
 
 .fade-enter-active, .fade-leave-active { transition: opacity 0.3s ease; }
@@ -298,7 +337,41 @@ onBeforeUnmount(() => {
               opacity 0.2s ease;
 }
 
+/* shared "cool" gradient button — same recipe as the About page, used for every Book Now CTA */
+.btn-primary {
+  background: linear-gradient(135deg, #6BCE9F 0%, #1f9d63 55%, #036533 100%);
+  background-size: 180% 180%;
+  background-position: 0% 50%;
+  box-shadow: 0 10px 24px rgba(3, 101, 51, 0.22);
+  transition: background-position 0.5s ease, transform 0.25s ease, box-shadow 0.3s ease;
+}
+.btn-primary:hover {
+  background-position: 100% 50%;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 32px rgba(3, 101, 51, 0.32);
+}
+
+/* mobile nav links fade/slide in, staggered, each time the drawer opens */
+.mobile-nav-enter > * {
+  opacity: 0;
+  animation: navLinkIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.mobile-nav-enter > *:nth-child(1) { animation-delay: 0.06s; }
+.mobile-nav-enter > *:nth-child(2) { animation-delay: 0.11s; }
+.mobile-nav-enter > *:nth-child(3) { animation-delay: 0.16s; }
+.mobile-nav-enter > *:nth-child(4) { animation-delay: 0.21s; }
+.mobile-nav-enter > *:nth-child(5) { animation-delay: 0.26s; }
+
+@keyframes navLinkIn {
+  from { opacity: 0; transform: translateX(-10px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .nav-pill { transition: none; }
+  .btn-primary { transition: none; }
+  .btn-primary:hover { transform: none; }
+  .mobile-nav-enter > * { animation: none; opacity: 1; transform: none; }
+  .slide-enter-active, .slide-leave-active { transition: none; }
 }
 </style>

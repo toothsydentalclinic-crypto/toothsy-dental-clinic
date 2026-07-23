@@ -4,9 +4,6 @@
     <HeroSection eyebrow="About Toothsy" title="Healthy Smiles" highlight="Begin Here"
       description="Comfortable, high-quality dental care delivered with precision and compassion." />
 
-    <!-- ════════════════════════════════════════════════════
-      ABOUT CONTENT
-    ════════════════════════════════════════════════════ -->
     <section class="min-h-screen py-10 px-4 relative z-10">
       <div class="max-w-7xl mx-auto">
 
