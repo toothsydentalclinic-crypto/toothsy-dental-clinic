@@ -3,12 +3,10 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
   devtools: { enabled: true },
-
   css: [
-    "./app/assets/css/main.css",
+    "~/assets/css/main.css", // fixed: alias instead of relative "./" path
     "@fortawesome/fontawesome-free/css/all.min.css",
   ],
-
   vite: {
     plugins: [tailwindcss()],
     server: {
@@ -18,7 +16,6 @@ export default defineNuxtConfig({
       },
     },
   },
-
   runtimeConfig: {
     public: {
       emailjsServiceId: "service_09csxvs",
@@ -26,7 +23,6 @@ export default defineNuxtConfig({
       emailjsPublicKey: "T8FLPsFfvUtRLmlaa",
     },
   },
-
   app: {
     baseURL: "/",
     head: {
