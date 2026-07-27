@@ -256,6 +256,8 @@
               <img
                 :src="m.img"
                 :alt="m.alt"
+                width="300"
+                height="375"
                 class="w-full h-[170px] md:h-[210px] object-cover object-top transition-transform duration-500 group-hover:scale-105"
               />
             </div>
@@ -408,9 +410,9 @@ const servicesPreview = [
 ]
 
 const team = [
-  { name: 'Dr. Sornn Rithean', role: 'General Dentist', img: '/team/dr-1.png', alt: 'Dr. SOKThea Liyo, Orthodontics specialist' },
-  { name: 'Dr. Chheng Mesa', role: 'Specialist Orthodontic', img: '/team/dr-2.png', alt: 'Dr. Channary Pich, Endodontics and Root Canal specialist' },
-  { name: 'Dr. Sornn Rithornu', role: 'Prosthodontics', img: '/team/dr-3.png', alt: 'Dr. Vibol Heng, Family and Pediatric Dentistry specialist' },
+  { name: 'Dr. Sornn Rithean', role: 'General Dentist', img: 'owndoctor.png', alt: 'Dr. Sornn Rithean, General Dentist' },
+  { name: 'Dr. Chheng Mesa', role: 'Specialist Orthodontic', img: 'owndoctor.png', alt: 'Dr. Chheng Mesa, Orthodontics Specialist' },
+  { name: 'Dr. Sornn Rithornu', role: 'Prosthodontics', img: 'owndoctor.png', alt: 'Dr. Sornn Rithornu, Prosthodontics Specialist' },
 ]
 
 // Single source of truth for the CTA slideshow timer.
