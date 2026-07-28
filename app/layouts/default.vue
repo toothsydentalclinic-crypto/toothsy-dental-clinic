@@ -103,7 +103,7 @@
             active-class="text-[#036533] bg-[#dff0e0]"
             @click="menuOpen = false"
             class="px-4 py-3 rounded-2xl transition-colors duration-200 hover:bg-[#dff0e0] hover:text-[#036533]"
-          >Blog</NuxtLink>
+          >Dental Care</NuxtLink>
           <NuxtLink
             to="/about"
             active-class="text-[#036533] bg-[#dff0e0]"
