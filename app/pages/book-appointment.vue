@@ -91,9 +91,12 @@ const preselectedService = route.query.service || ''
         <div class="p-8 lg:p-12">
           <NuxtLink
             to="/"
-            class="inline-flex items-center gap-2 text-sm font-medium text-[#1f9d63] mb-6 hover:text-[#178a54] transition-colors"
+            class="inline-flex items-center gap-3 text-base font-medium text-[#1f9d63] mb-6 hover:text-[#178a54] transition-colors"
           >
-            ← Back to Home
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <path d="M15 19l-7-7 7-7" />
+            </svg>
+            Back to Home
           </NuxtLink>
           <AppointmentForm :preselected-service="preselectedService" />
         </div>
@@ -101,3 +104,17 @@ const preselectedService = route.query.service || ''
     </div>
   </main>
 </template>
+<style scoped>
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+.body-font {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+}
+.font-display {
+  font-family: 'Fraunces', serif;
+  font-optical-sizing: auto;
+}
+
+
+</style>

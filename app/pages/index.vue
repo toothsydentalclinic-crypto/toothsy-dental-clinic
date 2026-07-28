@@ -130,7 +130,6 @@
       <div class="px-[18px] pt-[18px] pb-[22px]">
         <div class="flex items-center justify-between mb-3">
           <span class="bg-[#111827] text-white text-[0.67rem] font-bold px-[13px] py-[5px] rounded-full">{{ svc.badge }}</span>
-          <span class="font-display text-[0.78rem] font-bold text-[#036533]">{{ svc.price }}</span>
         </div>
         <h3 class="font-display text-base font-bold text-[#064e35] uppercase tracking-[0.03em] leading-tight mb-1.5">{{ svc.title }}</h3>
         <p class="text-[0.77rem] text-[#2d6b52] leading-relaxed">{{ svc.desc }}</p>
