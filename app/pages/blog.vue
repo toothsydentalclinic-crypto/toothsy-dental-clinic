@@ -16,7 +16,7 @@
       <div class="max-w-6xl mx-auto">
         <div class="text-center mb-10">
           <h2 class="font-display text-3xl md:text-4xl font-bold text-[#111827] inline-block relative">
-From the Blog
+From the Detal Care
           </h2>
           <p class="mt-4 text-stone-500 text-sm md:text-base max-w-xl mx-auto leading-relaxed mt-5 text-stone-500 text-[0.95rem] leading-relaxed max-w-md">
             Expert dental tips, oral health guides, and practical advice to help you keep your smile healthy and confident.
